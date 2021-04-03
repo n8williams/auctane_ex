@@ -1,4 +1,4 @@
-defmodule Auctane.Ui.Cli.Carriers do
+defmodule Auctane.Ui.Cli.Carriers.Carriers do
   @moduledoc """
   Handle the interaction with users from the Command Line Interface for
   interacting with data for Carriers.
