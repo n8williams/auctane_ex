@@ -20,7 +20,7 @@ defmodule Auctane.Cli.Application do
 
     # See: https://hexdocs.pm/elixir/Application.html#content
     # See: https://hexdocs.pm/elixir/Supervisor.html#content
-    # TODO:NW Write a GenServer for storing credentials, link a good resource.
+    # (Write a GenServer for storing credentials, link a good resource).
     # See: https://hexdocs.pm/elixir/Supervisor.html#module-strategies
     Supervisor.start_link(children, strategy: :one_for_one, name: Auctane.Cli.Supervisor)
   end

@@ -1,12 +1,18 @@
 defmodule Auctane.ShipEngineData.Carriers.Carriers do
-  @moduledoc """
+  @moduledoc false
 
-  """
+  alias Auctane.ShipEngineData.Carriers.Carrier
 
   @api_base_url "https://api.shipengine.com"
 
-  @spec list_carriers() :: any()
-  def list_carriers() do
+  @doc """
+  Retrieves the carriers from the shipengine API
+
+  This parses the responses and returns a list of structs in an :ok tuple, or
+  formats any errors and returns an :error tuple.
+  """
+  @spec list_carriers() :: [Carrier.t()]
+  def list_carriers do
     url = @api_base_url <> "/v1/carriers"
 
     headers = [
@@ -14,15 +20,18 @@ defmodule Auctane.ShipEngineData.Carriers.Carriers do
       {"API-Key", "TEST_Xfixcya91ZH4FvGn1y2Eu+3Dt4TfL1KRGeXFKUCFc0g"}
     ]
 
-    with request = Finch.build(:get, url, headers),
-         {:ok, result} <- Finch.request(request, AuctaneFinch) do
-      IO.inspect(result)
-      result
+    with request <- Finch.build(:get, url, headers),
+         {:ok, result} <- Finch.request(request, AuctaneFinch),
+         {:ok, body} <- Jason.decode(result.body),
+         carriers <- Map.get(body, "carriers"),
+         carriers <- Enum.map(carriers, &to_carrier_struct/1) do
+      {:ok, carriers}
     else
       {:error, err} ->
-        IO.inspect(err)
         err
     end
+
+    # {:ok, stub()}
 
     # Bad url with no slash prepending: {:error, %Mint.TransportError{reason: :nxdomain}}
     #    {:ok,
@@ -41,14 +50,23 @@ defmodule Auctane.ShipEngineData.Carriers.Carriers do
     # }}
   end
 
-  # defp retrieve_all_carriers do
-  #   # /v1/carriers
-  #   # |> Enum.map(&do_retrieve_package_info/1)
-  #   |> Enum.reject(&is_nil/1)
-  #   |> Enum.map(&do_make_csv_row/1)
-  #   |> CSV.encode()
-  #   |> Enum.each(fn row -> IO.write(:stdio, row) end)
-  # end
+  defp reduce_data_string_keys_to_atoms(atom_key, acc, carrier_data) do
+    string_field = Atom.to_string(atom_key)
+    string_field_value = Map.get(carrier_data, string_field)
+    Map.put(acc, atom_key, string_field_value)
+  end
+
+  # See also https://stackoverflow.com/questions/30927635/in-elixir-how-do-you-initialize-a-struct-with-a-map-variable
+  defp to_atom_keys(data) do
+    Carrier.__struct__()
+    |> Map.drop([:__struct__])
+    |> Map.keys()
+    |> Enum.reduce(%{}, &reduce_data_string_keys_to_atoms(&1, &2, data))
+  end
+
+  defp to_carrier_struct(data) do
+    struct(Carrier, to_atom_keys(data))
+  end
 
   # defp do_retrieve_all_carriers(%{done?: true} = info), do: info
   #
