@@ -22,7 +22,7 @@ defmodule Ui.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:finch, "~> 0.6"}
+      {:ship_engine_data, in_umbrella: true}
     ]
   end
 end

@@ -21,3 +21,7 @@ Assumes X, or to isolate i this project, use asdf ...
 
 ## Configuration
 Copy the .env_example file, and rename to .env and update with your local values.
+
+
+See also: https://github.com/christopheradams/elixir_style_guide#comments
+https://chris.beams.io/posts/git-commit/

@@ -1,4 +1,4 @@
-defmodule ShipengineData.MixProject do
+defmodule ShipEngineData.MixProject do
   use Mix.Project
 
   def project do
@@ -21,7 +21,7 @@ defmodule ShipengineData.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:finch, "~> 0.6"}
+      {:finch, "~> 0.6"}
     ]
   end
 end
