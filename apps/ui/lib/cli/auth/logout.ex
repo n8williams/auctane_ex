@@ -4,7 +4,7 @@ defmodule Auctane.Ui.Cli.Auth.Logout do
   interacting with inputs for logging the user out.
   """
 
-  # alias Auctane.ShipEngineData.Carriers.Carriers
+  # alias Auctane.ShipEngineData.Carriers.Contexts.Carriers
 
   @doc "Log the user out"
   @spec logout_cli() :: :ok

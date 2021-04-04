@@ -1,9 +1,9 @@
-defmodule Auctane.Ui.Cli.Carriers.Carriers do
+defmodule Auctane.Ui.Cli.Carriers.Contexts.Carriers do
   @moduledoc """
   Handle the interaction with users from the Command Line Interface for
   interacting with data for Carriers.
   """
-  alias Auctane.ShipEngineData.Carriers.Carriers
+  alias Auctane.ShipEngineData.Carriers.Contexts.Carriers
 
   @doc "List all carriers"
   @spec carriers_cli() :: :ok

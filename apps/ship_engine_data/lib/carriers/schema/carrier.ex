@@ -1,4 +1,4 @@
-defmodule Auctane.ShipEngineData.Carriers.Carrier do
+defmodule Auctane.ShipEngineData.Carriers.Schema.Carrier do
   @moduledoc "Struct representing basic, non-associative carrier data"
 
   defstruct carrier_id: nil,

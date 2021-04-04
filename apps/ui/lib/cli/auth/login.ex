@@ -4,7 +4,7 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   interacting with inputs for logging the user in.
   """
 
-  # alias Auctane.ShipEngineData.Carriers.Carriers
+  alias Auctane.Ui.Cli.Auth.AuthSupport
 
   # NOTE: I would be somewhat particular about which data would warrant
   # attribute status, versus something like
@@ -32,11 +32,8 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   end
 
   defp put_key(key) do
-    path = api_key_file_path()
+    path = AuthSupport.api_key_file_path()
     File.rm!(path)
     File.write!(path, key)
   end
-
-  # Put this in a auth/support folder in a support module
-  defp api_key_file_path, do: Path.expand("../../../priv", __DIR__) <> "/user_api_key.txt"
 end

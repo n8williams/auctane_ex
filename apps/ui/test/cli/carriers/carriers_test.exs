@@ -1,9 +1,9 @@
-defmodule Auctane.Ui.Cli.Carriers.CarriersTest do
+defmodule Auctane.Ui.Cli.Carriers.Contexts.CarriersTest do
   use ExUnit.Case
 
-  import Auctane.Ui.Cli.Carriers.Carriers
+  import Auctane.Ui.Cli.Carriers.Contexts.Carriers
 
-  alias Auctane.Ui.Cli.Carriers.Carriers
+  alias Auctane.Ui.Cli.Carriers.Contexts.Carriers
   doctest Carriers
 
   test "output_carriers/1" do

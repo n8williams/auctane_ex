@@ -3,6 +3,8 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
 
   import Auctane.ShipEngineData.Core.Support.StructSupport, only: [to_atom_keys: 2]
 
+  alias Auctane.ShipEngineData.Carriers.Schema.Carrier
+
   @api_base_url "https://api.shipengine.com"
 
   @doc """
@@ -98,7 +100,7 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
 
   defp stub do
     [
-      %Auctane.ShipEngineData.Carriers.Carrier{
+      %Carrier{
         account_number: "test_account_578982",
         balance: 8507.28,
         carrier_code: "stamps_com",
@@ -107,7 +109,7 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
         nickname: "ShipEngine Test Account - Stamps.com",
         requires_funded_amount: true
       },
-      %Auctane.ShipEngineData.Carriers.Carrier{
+      %Carrier{
         account_number: "test_account_578983",
         balance: 0.0,
         carrier_code: "ups",
@@ -116,7 +118,7 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
         nickname: "ShipEngine Test Account - UPS",
         requires_funded_amount: false
       },
-      %Auctane.ShipEngineData.Carriers.Carrier{
+      %Carrier{
         account_number: "test_account_578984",
         balance: 0.0,
         carrier_code: "fedex",

@@ -1,8 +1,11 @@
 defmodule Auctane.ShipEngineData.Core.Support.StructSupport do
+  @moduledoc "Support functions for handling structs"
+
   @doc """
-  Converts a map with string keys to a map with atom to_atom_keys
+  Converts a map with string keys to a map with atom keys
 
   ## Resources
+
   NOTE: Someone in a recent interview criticized Elixir, or at least
   implementing developers, for making code unreadable by abusing the capture
   operator. This form uses named functions and is a longer (more readable?)
@@ -10,6 +13,17 @@ defmodule Auctane.ShipEngineData.Core.Support.StructSupport do
   https://stackoverflow.com/questions/30927635/in-elixir-how-do-you-initialize-a-struct-with-a-map-variable
 
   ## Examples
+
+    iex> StructSupport.to_atom_keys(%Carrier{}, %{"nickname" => "Test Name", "carrier_id" => "1234"})
+    %{
+      account_number: nil,
+      balance: nil,
+      carrier_code: nil,
+      carrier_id: "1234",
+      friendly_name: nil,
+      nickname: "Test Name",
+      requires_funded_amount: nil
+    }
 
   """
   @spec to_atom_keys(struct(), map()) :: map()

@@ -1,4 +1,4 @@
-defmodule Auctane.ShipEngineData.Carriers.Carriers do
+defmodule Auctane.ShipEngineData.Carriers.Contexts.Carriers do
   @moduledoc false
 
   alias Auctane.ShipEngineData.Carriers.Carrier
