@@ -9,6 +9,6 @@ defmodule Auctane.Ui.Cli.Auth.Logout do
   @doc "Log the user out"
   @spec logout_cli() :: :ok
   def logout_cli do
-    IO.puts("Logged Out")
+    IO.puts("You are no longer logged in to ShipEngine")
   end
 end
