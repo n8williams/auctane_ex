@@ -27,8 +27,11 @@ defmodule Auctane.MixProject do
   defp docs do
     [
       groups_for_modules: [
+        "ShipEngine Data Application": [
+          Auctane.ShipEngineData.Application
+        ],
         "ShipEngine Data Authorization": [
-          Auctane.ShipEngineData.Auth.Storage,
+          Auctane.ShipEngineData.Auth.FileStorage,
           Auctane.ShipEngineData.Auth.Support
         ],
         "ShipEngine Data Carriers": [

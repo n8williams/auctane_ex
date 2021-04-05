@@ -6,11 +6,12 @@ defmodule Mix.Tasks.ShipEngine.Logout do
   @shortdoc "Log the user out by deleting the locally-stored API key"
 
   @moduledoc """
-  Launches the Command Line Logout Interface for ...
+  A task that calls to the user interface for logging a user out
 
   ## Example
 
-  mix ship_engine.logout
+      nwilliams$ mix ship_engine.logout
+
   """
 
   @doc false

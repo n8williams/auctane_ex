@@ -3,7 +3,7 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
 
   import Auctane.ShipEngineData.Core.Support.StructSupport, only: [to_atom_keys: 2]
 
-  alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
+  alias Auctane.ShipEngineData.Auth.FileStorage, as: AuthFileStorage
   alias Auctane.ShipEngineData.Carriers.Schema.Carrier
 
   @api_base_url "https://api.shipengine.com"
@@ -20,7 +20,7 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
 
     headers = [
       {"Host", "api.shipengine.com"},
-      {"API-Key", AuthStorage.load_key!()}
+      {"API-Key", AuthFileStorage.load_key!()}
     ]
 
     with request <- Finch.build(:get, url, headers),
@@ -33,9 +33,6 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
       {:error, _err} = result -> result
     end
   end
-
-  @doc false
-  def list_carriers_stub, do: {:ok, stub()}
 
   defp parse_reponse(response) do
     case Map.get(response, :status) do
@@ -64,38 +61,5 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
     # using a ton of imported functions, or importing the module without
     # specifying the `only` option.
     struct(Carrier, to_atom_keys(%Carrier{}, data))
-  end
-
-  # Bad url with no slash prepending: {:error, %Mint.TransportError{reason: :nxdomain}}
-  defp stub do
-    [
-      %Carrier{
-        account_number: "test_account_578982",
-        balance: 8507.28,
-        carrier_code: "stamps_com",
-        carrier_id: "se-578982",
-        friendly_name: "Stamps.com",
-        nickname: "ShipEngine Test Account - Stamps.com",
-        requires_funded_amount: true
-      },
-      %Carrier{
-        account_number: "test_account_578983",
-        balance: 0.0,
-        carrier_code: "ups",
-        carrier_id: "se-578983",
-        friendly_name: "UPS",
-        nickname: "ShipEngine Test Account - UPS",
-        requires_funded_amount: false
-      },
-      %Carrier{
-        account_number: "test_account_578984",
-        balance: 0.0,
-        carrier_code: "fedex",
-        carrier_id: "se-578984",
-        friendly_name: "FedEx",
-        nickname: "ShipEngine Test Account - FedEx",
-        requires_funded_amount: false
-      }
-    ]
   end
 end

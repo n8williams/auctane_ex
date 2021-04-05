@@ -1,11 +1,11 @@
 defmodule Auctane.Ui.Cli.Auth.Login do
   @moduledoc """
-  Handle the interaction with users from the Command Line Interface for
-  interacting with inputs for logging the user in.
+  Handle the CLI interaction with users for interacting with inputs for logging
+  the user in.
   """
 
+  alias Auctane.ShipEngineData.Auth.FileStorage, as: AuthFileStorage
   alias Auctane.ShipEngineData.Auth.SessionStorage, as: AuthSessionStorage
-  alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
   alias Auctane.Ui.Cli.Carriers.Carriers
 
   # NOTE: I would be somewhat particular about which data would warrant
@@ -35,7 +35,7 @@ defmodule Auctane.Ui.Cli.Auth.Login do
       api_key |> String.trim() |> AuthSessionStorage.put()
       Carriers.carriers_cli()
     else
-      AuthStorage.put_key!(api_key)
+      AuthFileStorage.put_key!(api_key)
       IO.puts(@logged_in_message)
     end
   end

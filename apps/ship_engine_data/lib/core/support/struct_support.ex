@@ -8,7 +8,7 @@ defmodule Auctane.ShipEngineData.Core.Support.StructSupport do
 
   NOTE: Someone in a recent interview criticized Elixir, or at least
   implementing developers, for making code unreadable by abusing the capture
-  operator. This form uses named functions and is a longer (more readable?)
+  operator. This module uses named functions and is a longer (more readable?)
   form of the answer in the discussion at:
   https://stackoverflow.com/questions/30927635/in-elixir-how-do-you-initialize-a-struct-with-a-map-variable
 

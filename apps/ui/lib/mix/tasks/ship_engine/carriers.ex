@@ -9,11 +9,14 @@ defmodule Mix.Tasks.ShipEngine.Carriers do
   """
 
   @moduledoc """
-  Launches the Command Line User Interface for listing carriers
+  A task that outputs a user's carriers
+
+  This task assumes you have previously logged in.
 
   ## Example
 
-  mix ship_engine.carriers
+      nwilliams$ mix ship_engine.carriers
+
   """
 
   @doc false
@@ -23,6 +26,7 @@ defmodule Mix.Tasks.ShipEngine.Carriers do
     # The Finch library requires this, "you must start it and provide a :name".
     # See: https://hexdocs.pm/finch/Finch.html
     Mix.Task.run("app.start")
+
     CarriersUi.carriers_cli()
   end
 end

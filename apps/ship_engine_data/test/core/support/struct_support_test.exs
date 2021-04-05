@@ -10,7 +10,7 @@ defmodule Auctane.ShipEngineData.Core.Support.StructSupportTest do
     test "Given a module name in place of a struct" do
       params = %{"nickname" => "Test Name"}
 
-      # NOTE: In practice I would probably write a funtion head in the support
+      # NOTE: In practice I would probably write a function head in the support
       # module that matches this case.
       assert_raise FunctionClauseError, fn ->
         StructSupport.to_atom_keys(Carrier, params)

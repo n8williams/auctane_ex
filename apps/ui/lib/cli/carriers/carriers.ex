@@ -1,7 +1,6 @@
 defmodule Auctane.Ui.Cli.Carriers.Carriers do
   @moduledoc """
-  Handle the interaction with users from the Command Line Interface for
-  interacting with data for Carriers.
+  Handle the CLI interaction with users for interacting with data for Carriers.
   """
   alias Auctane.ShipEngineData.Carriers.Contexts.Carriers
 

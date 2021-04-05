@@ -9,11 +9,15 @@ defmodule Mix.Tasks.ShipEngine.Login do
   """
 
   @moduledoc """
-  Launches the Command Line Login Interface for ...
+  A task that calls to the user interface for logging a user in
+
+  If you want to see all carriers without storing your login info, select "N"
+  when prompted about persisting your login for future sessions.
 
   ## Example
 
-  mix ship_engine.login
+        nwilliams$ mix ship_engine.login
+
   """
 
   @doc false

@@ -1,4 +1,4 @@
-defmodule Auctane.ShipEngineData.Auth.Storage do
+defmodule Auctane.ShipEngineData.Auth.FileStorage do
   @moduledoc "Logic for persisting authorization data to a file"
 
   alias Auctane.ShipEngineData.Auth.{SessionStorage, Support}
@@ -15,7 +15,7 @@ defmodule Auctane.ShipEngineData.Auth.Storage do
   @doc """
   Retrieves the api key from the `user_api_key.txt` file
 
-  If the user has opted to store the api key in the SessionStorage agent, return\
+  If the user has opted to store the api key in the SessionStorage agent, return
   this value.
   """
   @spec load_key!() :: :String.t()

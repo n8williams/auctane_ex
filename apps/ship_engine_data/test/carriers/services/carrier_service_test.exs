@@ -15,7 +15,7 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierServiceTest do
       System.put_env("TEST_SHIP_ENGINE_API_KEY", "42")
       subject = CarrierService.list_carriers()
       assert {:error, _err} = subject
-      System.put_env("TEST_SHIP_ENGINE_API_KEY", begin_env)
+      System.put_env("TEST_SHIP_ENGINE_API_KEY", begin_env || "")
     end
   end
 end
