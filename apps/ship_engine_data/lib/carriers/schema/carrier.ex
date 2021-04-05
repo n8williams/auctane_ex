@@ -13,7 +13,7 @@ defmodule Auctane.ShipEngineData.Carriers.Schema.Carrier do
           carrier_id: String.t(),
           carrier_code: String.t(),
           account_number: String.t(),
-          requires_funded_amount: bool(),
+          requires_funded_amount: boolean(),
           carrier_code: String.t(),
           balance: number(),
           nickname: String.t(),
