@@ -1,4 +1,4 @@
-defmodule Auctane.Ui.Cli.Carriers.Contexts.Carriers do
+defmodule Auctane.Ui.Cli.Carriers.Carriers do
   @moduledoc """
   Handle the interaction with users from the Command Line Interface for
   interacting with data for Carriers.
@@ -33,7 +33,7 @@ defmodule Auctane.Ui.Cli.Carriers.Contexts.Carriers do
   def output_carrier_error(error),
     do:
       "Error retreiving your carrier list: #{error}" <>
-        ". Please ensure you are logged in."
+        ". Please ensure you are logged in with the correct api key."
 
   defp format_carrier(carrier), do: "- #{carrier.friendly_name} (#{carrier.carrier_id})"
 end

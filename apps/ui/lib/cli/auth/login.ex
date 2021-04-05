@@ -4,8 +4,9 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   interacting with inputs for logging the user in.
   """
 
-  alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
   alias Auctane.ShipEngineData.Auth.SessionStorage, as: AuthSessionStorage
+  alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
+  alias Auctane.Ui.Cli.Carriers.Carriers
 
   # NOTE: I would be somewhat particular about which data would warrant
   # attribute status, versus something like
@@ -21,7 +22,8 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   #  allowed by the formatter.
   @login_prompt "Please enter your ShipEngine API key:"
   @logged_in_message "You have successfully logged in"
-  @persistance_prompt "Do you want to persist your login for future sessions? (Y/N):"
+  @persistance_prompt "Do you want to persist your login for future sessions? (Y/N)
+    (Enter 'N' to immediately list your carriers):"
 
   @doc "Log the user in"
   @spec login_cli() :: :ok
@@ -30,11 +32,11 @@ defmodule Auctane.Ui.Cli.Auth.Login do
     persist_login? = IO.gets(@persistance_prompt) |> String.trim()
 
     if persist_login? === "N" do
-      AuthSessionStorage.put(api_key)
+      api_key |> String.trim() |> AuthSessionStorage.put()
+      Carriers.carriers_cli()
     else
       AuthStorage.put_key!(api_key)
+      IO.puts(@logged_in_message)
     end
-
-    IO.puts(@logged_in_message)
   end
 end

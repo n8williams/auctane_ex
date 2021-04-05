@@ -1,7 +1,7 @@
 defmodule Mix.Tasks.ShipEngine.Carriers do
   use Mix.Task
 
-  alias Auctane.Ui.Cli.Carriers.Contexts.Carriers, as: CarriersUi
+  alias Auctane.Ui.Cli.Carriers.Carriers, as: CarriersUi
 
   @shortdoc """
   Lists all of the carrier accounts that are connected to the user’s ShipEngine
