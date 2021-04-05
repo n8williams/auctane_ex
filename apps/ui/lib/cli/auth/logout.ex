@@ -4,11 +4,12 @@ defmodule Auctane.Ui.Cli.Auth.Logout do
   interacting with inputs for logging the user out.
   """
 
-  # alias Auctane.ShipEngineData.Carriers.Contexts.Carriers
+  alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
 
   @doc "Log the user out"
   @spec logout_cli() :: :ok
   def logout_cli do
+    AuthStorage.clear_key!()
     IO.puts("You are no longer logged in to ShipEngine")
   end
 end

@@ -1,5 +1,8 @@
 defmodule Mix.Tasks.ShipEngine.Login do
+  @moduledoc false
+
   use Mix.Task
+
   alias Auctane.Ui.Cli.Auth.Login, as: LoginUi
 
   @shortdoc """
@@ -7,7 +10,7 @@ defmodule Mix.Tasks.ShipEngine.Login do
   to use for subsequent tasks.
   """
 
-  @moduledoc """
+  @doc """
   Launches the Command Line Login Interface for ...
 
   ## Example

@@ -4,7 +4,7 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   interacting with inputs for logging the user in.
   """
 
-  alias Auctane.Ui.Cli.Auth.AuthSupport
+  alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
 
   # NOTE: I would be somewhat particular about which data would warrant
   # attribute status, versus something like
@@ -27,13 +27,7 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   def login_cli do
     api_key = IO.gets(@login_prompt)
     persist_login? = IO.gets(@persistance_prompt)
-    put_key(api_key)
+    AuthStorage.put_key!(api_key)
     IO.puts(@logged_in_message)
-  end
-
-  defp put_key(key) do
-    path = AuthSupport.api_key_file_path()
-    File.rm!(path)
-    File.write!(path, key)
   end
 end

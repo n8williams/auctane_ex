@@ -3,7 +3,8 @@
 This application is setup as an umbrella application, to allow for ease of future development. It is divided by layer into (1,2).
 
 ## OS/package dependencies
-Assumes X, or to isolate i this project, use asdf ...
+Assumes you have `Elixir 1.11.4` with `OTP 23.2.3`. One can isolate this project's packages using `asdf` with the `.tool-versions` file.
+See: https://asdf-vm.com/#/core-manage-asdf
 
 ## Application Setup
 1. Run `mix deps.get`
@@ -15,13 +16,10 @@ Assumes X, or to isolate i this project, use asdf ...
 **TODO: Add description**
 
 ## Testing
-- To run unit tests, run `mix test`.
+- Ensure your shell session/environment has a path variable set for the API key for testing, `export TEST_SHIP_ENGINE_API_KEY=XXXX` or in a `.env` file if you are using a setup like Docker.
+- To run unit tests, run `MIX_ENV=test mix test` or Ensure your shell session/environment has a path variable set, `MIX_ENV=test` and run `mix test`.
 - To run static code analysis using credo, run `mix credo --strict`.
 - To run the mix code formatter, run `mix format --check-formatted` (or ensure you have run `mix format` to ensure your files are formatted to avoid any errors with the check).
-
-## Configuration
-Copy the .env_example file, and rename to .env and update with your local values.
-
 
 See also: https://github.com/christopheradams/elixir_style_guide#comments
 https://chris.beams.io/posts/git-commit/

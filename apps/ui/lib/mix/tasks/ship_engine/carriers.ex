@@ -1,5 +1,8 @@
 defmodule Mix.Tasks.ShipEngine.Carriers do
+  @moduledoc false
+
   use Mix.Task
+
   alias Auctane.Ui.Cli.Carriers.Contexts.Carriers, as: CarriersUi
 
   @shortdoc """
@@ -7,17 +10,13 @@ defmodule Mix.Tasks.ShipEngine.Carriers do
   account.
   """
 
-  @moduledoc """
+  @doc """
   Launches the Command Line User Interface for listing carriers
-
-  TODO:NW Move mix into its own app? The mix command does not work if this
-  module is named Auctane.Mix.Tasks.ShipEngine.Carriers
 
   ## Example
 
   mix ship_engine.carriers
   """
-
   def run(_args) do
     # This will start our application.
     # See: https://elixirschool.com/en/lessons/basics/mix-tasks/#loading-your-application

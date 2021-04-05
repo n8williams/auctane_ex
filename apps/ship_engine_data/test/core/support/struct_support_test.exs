@@ -21,21 +21,21 @@ defmodule Auctane.ShipEngineData.Core.Support.StructSupportTest do
       params = %{"nickname" => "Test Name"}
       expected = load_defaults(%{nickname: "Test Name"})
       subject = StructSupport.to_atom_keys(%Carrier{}, params)
-      assert subject == expected
+      assert expected == subject
     end
 
     test "Given a map of params with a multiple fields" do
       params = %{"nickname" => "Test Name", "carrier_id" => "1234"}
       subject = StructSupport.to_atom_keys(%Carrier{}, params)
       expected = load_defaults(%{nickname: "Test Name", carrier_id: "1234"})
-      assert subject == expected
+      assert expected == subject
     end
 
     test "Given a map of params with a extra fields" do
       params = %{"nickname" => "Test Name", "carrier_id" => "1234", "other_field" => 42}
       subject = StructSupport.to_atom_keys(%Carrier{}, params)
       expected = load_defaults(%{nickname: "Test Name", carrier_id: "1234"})
-      assert subject == expected
+      assert expected == subject
     end
 
     test "Given a map of params with a nested fields" do
@@ -50,7 +50,7 @@ defmodule Auctane.ShipEngineData.Core.Support.StructSupportTest do
 
       subject = StructSupport.to_atom_keys(%Carrier{}, params)
       expected = load_defaults(%{nickname: "Test Name", carrier_id: "1234"})
-      assert subject == expected
+      assert expected == subject
     end
   end
 

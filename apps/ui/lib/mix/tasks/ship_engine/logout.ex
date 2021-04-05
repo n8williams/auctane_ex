@@ -1,10 +1,13 @@
 defmodule Mix.Tasks.ShipEngine.Logout do
+  @moduledoc false
+
   use Mix.Task
+
   alias Auctane.Ui.Cli.Auth.Logout, as: LogoutUi
 
   @shortdoc "Log the user out by deleting the locally-stored API key"
 
-  @moduledoc """
+  @doc """
   Launches the Command Line Logout Interface for ...
 
   ## Example
