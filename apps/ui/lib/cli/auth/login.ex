@@ -5,6 +5,7 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   """
 
   alias Auctane.ShipEngineData.Auth.Storage, as: AuthStorage
+  alias Auctane.ShipEngineData.Auth.SessionStorage, as: AuthSessionStorage
 
   # NOTE: I would be somewhat particular about which data would warrant
   # attribute status, versus something like
@@ -26,8 +27,14 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   @spec login_cli() :: :ok
   def login_cli do
     api_key = IO.gets(@login_prompt)
-    persist_login? = IO.gets(@persistance_prompt)
-    AuthStorage.put_key!(api_key)
+    persist_login? = IO.gets(@persistance_prompt) |> String.trim()
+
+    if persist_login? === "N" do
+      AuthSessionStorage.put(api_key)
+    else
+      AuthStorage.put_key!(api_key)
+    end
+
     IO.puts(@logged_in_message)
   end
 end

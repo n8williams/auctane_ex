@@ -1,5 +1,5 @@
 defmodule Auctane.ShipEngineData.Auth.Storage do
-  @moduledoc "Logic for persisting authoization data"
+  @moduledoc "Logic for persisting authorization data to a file"
 
   alias Auctane.ShipEngineData.Auth.Support
 
