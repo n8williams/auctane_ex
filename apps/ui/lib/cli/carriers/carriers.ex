@@ -28,7 +28,7 @@ defmodule Auctane.Ui.Cli.Carriers.Contexts.Carriers do
   ## Examples
 
     iex>output_carrier_error("Test Error")
-    "Error retreiving your carrier list: Test Error"
+    "Error retreiving your carrier list: Test Error. Please ensure you are logged in."
   """
   def output_carrier_error(error),
     do:
