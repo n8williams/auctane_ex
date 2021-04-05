@@ -1,9 +1,9 @@
 defmodule Auctane.ShipEngineData.Core.Support.StructSupportTest do
   use ExUnit.Case
 
-  # Used in doctest
   alias Auctane.ShipEngineData.Carriers.Schema.Carrier
   alias Auctane.ShipEngineData.Core.Support.StructSupport
+
   doctest StructSupport
 
   describe "to_atom_keys/2" do

@@ -1,5 +1,5 @@
 defmodule Auctane.ShipEngineData.Carriers.Contexts.Carriers do
-  @moduledoc false
+  @moduledoc "Functions for dealing with Carriers"
 
   alias Auctane.ShipEngineData.Carriers.Carrier
   alias Auctane.ShipEngineData.Carriers.Services.CarrierService
@@ -11,5 +11,5 @@ defmodule Auctane.ShipEngineData.Carriers.Contexts.Carriers do
   an :error tuple.
   """
   @spec list_carriers() :: {:ok, [Carrier.t()]} | {:error, any()}
-  def list_carriers, do: CarrierService.list_carriers_stub()
+  def list_carriers, do: CarrierService.list_carriers()
 end

@@ -10,7 +10,7 @@ defmodule Auctane.Ui.Cli.Carriers.Contexts.Carriers do
   def carriers_cli do
     case Carriers.list_carriers() do
       {:ok, carriers} -> output_carriers(carriers)
-      {:error, error} -> output_carrier_error(error)
+      {:error, error} -> error |> output_carrier_error() |> IO.puts()
     end
   end
 
@@ -28,10 +28,12 @@ defmodule Auctane.Ui.Cli.Carriers.Contexts.Carriers do
   ## Examples
 
     iex>output_carrier_error("Test Error")
-    "There was an error retreiving your carrier list: Test Error"
+    "Error retreiving your carrier list: Test Error"
   """
   def output_carrier_error(error),
-    do: "There was an error retreiving your carrier list: #{error}"
+    do:
+      "Error retreiving your carrier list: #{error}" <>
+        ". Please ensure you are logged in."
 
   defp format_carrier(carrier), do: "- #{carrier.friendly_name} (#{carrier.carrier_id})"
 end
