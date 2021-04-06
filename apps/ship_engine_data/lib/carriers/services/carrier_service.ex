@@ -28,8 +28,8 @@ defmodule Auctane.ShipEngineData.Carriers.Services.CarrierService do
          {:ok, carriers} <- parse_reponse(response) do
       {:ok, carriers}
     else
-      # Enfore the alternative as an :error tuple that would otherwise trigger a
-      # match error.
+      # Enforce the alternative as an :error tuple that would otherwise trigger
+      # a match error.
       {:error, _err} = result -> result
     end
   end

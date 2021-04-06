@@ -17,7 +17,7 @@ defmodule Auctane.Ui.Cli.Auth.Login do
   #     do: "Do you want to persist your login for future sessions? (Y/N):"
   #
   #  The fact that using attributes made these one-liners won the day.
-  #  Preference: comments (with the exception of urls) shuold fit within an 80
+  #  Preference: comments (with the exception of urls) should fit within an 80
   #  character vim-type-width-limit, the code extending to up to the width
   #  allowed by the formatter.
   @login_prompt "Please enter your ShipEngine API key:"

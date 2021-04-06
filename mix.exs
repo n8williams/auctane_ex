@@ -27,11 +27,12 @@ defmodule Auctane.MixProject do
   defp docs do
     [
       groups_for_modules: [
-        "ShipEngine Data Application": [
+        "ShipEngine Data Application Setup": [
           Auctane.ShipEngineData.Application
         ],
         "ShipEngine Data Authorization": [
           Auctane.ShipEngineData.Auth.FileStorage,
+          Auctane.ShipEngineData.Auth.SessionStorage,
           Auctane.ShipEngineData.Auth.Support
         ],
         "ShipEngine Data Carriers": [
@@ -47,7 +48,7 @@ defmodule Auctane.MixProject do
           Auctane.Ui.Cli.Auth.Logout
         ],
         "CLI Carriers Interface": [
-          Auctane.Ui.Cli.Carriers.Contexts.Carriers
+          Auctane.Ui.Cli.Carriers.Carriers
         ]
       ]
     ]
