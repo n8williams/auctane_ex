@@ -2,7 +2,7 @@
 
 This application is setup as an umbrella application, to allow for ease of future development. This approach was meant to focus on project structuring more than the requirements might have laid out initially.
 
-Wherever a `NOTE:` is present, this is overly verbose commenting that would not typically go in a project, but os present to remind Nate of certain rationales and talking points.
+Wherever a `NOTE:` is present, this is an overly verbose comment section that would not typically go in a project. These are to remind Nate of certain rationales and talking points.
 
 ## OS/package dependencies
 This project assumes you have `Elixir 1.11.4` with `OTP 23.2.3`. One can isolate this project's packages using `asdf` with the `.tool-versions` file and `asdf` commands, such as `asdf install`.
@@ -21,7 +21,7 @@ This project's interface is accessed through the following three mix tasks:
 
 One additional feature introduced in this project is the option to not persist your login, and run a default action for fetching carriers. With the `mix ship_engine.login` command, you can enter your api key, and then choose not to persist your login and default to view all carriers and then exit without storing your login information.
 
-NOTE: This was largely done to experiment with using an `Agent/GenServer` in the Supervisor tree for the `ship_engine_data` application.
+NOTE: This was largely done to experiment with using an `Agent/GenServer` in the Supervisor tree for the `ship_engine_data` sub-application.
 
 ## Testing
 - Ensure your shell session/environment has a variable set for the API key for testing, e.g. `export TEST_SHIP_ENGINE_API_KEY=XXXX` or putting this in an `.env` file if you are using a setup like Docker.
