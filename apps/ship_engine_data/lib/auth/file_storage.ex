@@ -7,7 +7,7 @@ defmodule Auctane.ShipEngineData.Auth.FileStorage do
   @spec clear_key!() :: :ok
   def clear_key! do
     path = Support.api_key_file_path()
-    File.rm!(path)
+    remove_file(path)
     File.write!(path, "")
     :ok
   end
@@ -38,7 +38,7 @@ defmodule Auctane.ShipEngineData.Auth.FileStorage do
   @spec put_key!(String.t()) :: :ok
   def put_key!(key) do
     path = Support.api_key_file_path()
-    File.rm!(path)
+    remove_file(path)
     File.write!(path, key)
     :ok
   end
@@ -46,5 +46,12 @@ defmodule Auctane.ShipEngineData.Auth.FileStorage do
   defp load_key_from_file do
     path = Support.api_key_file_path()
     File.read!(path) |> String.trim()
+  end
+
+  defp remove_file(path) do
+    case File.read(path) do
+      {:error, _} -> :ok
+      _ -> File.rm!(path)
+    end
   end
 end
